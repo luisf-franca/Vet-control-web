@@ -1,0 +1,52 @@
+/* TONS DE CINZA */
+
+:root {
+  --c00: #ffffff;
+  --c05: #f3f5f5;
+  --c10: #eaeded;
+  --c20: #e4e7e7;
+  --c30: #c9cfcf;
+  --c40: #a1aaaa;
+  --c50: #798686;
+  --c60: #555e5e;
+  --c70: #3b4444;
+  --c80: #2f3636;
+  --c90: #252b2b;
+  --c95: #1f2323;
+  --c100: #171a1a;
+}
+
+/* CORES PRIMARIAS */
+
+:root {
+  --p1: #04c2c3;
+  --p2: #6ed7d8;
+  --p3: #02a5a6;
+  --p4: #038a8b;
+  --p5: #025d5e;
+  --p6: #003535;
+}
+
+/* CORES SECUNDARIAS */
+
+:root {
+  --s1: #af0012;
+  --s2: #e6aa46;
+  --s3: #0094c1;
+  --s4: #c64d80;
+  --s5: #1dcc6f;
+}
+
+/* FUNDOS */
+
+:root {
+  --b1: #eef4f4;
+}
+
+/* SOMBRAS */
+
+:root {
+  --shadow1: 0px 1px 2px 0px rgba(0, 0, 0, 0.2);
+  --shadow2: 5px 5px 10px 0px rgba(0, 0, 0, 0.1);
+  --shadow3: 0 4px 0px rgba(217, 217, 217, 1);
+}

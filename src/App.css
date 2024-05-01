@@ -1,0 +1,101 @@
+/* FONTES */
+@import url('https://fonts.googleapis.com/css2?family=Sora:wght@100..800&display=swap');
+@import url(./styles/colors.css);
+
+*,
+button {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+  appearance: none;
+  border: none;
+  color: inherit;
+  background: none;
+
+  font-family: Sora, Helvetica, sans-serif;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+input:focus {
+  outline: none;
+  border: 1px solid var(--p3);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+#root {
+  background-color: #eef4f4;
+}
+
+/* CONTAINER */
+
+.container {
+  max-width: 90rem;
+  padding-inline: 5rem;
+  margin: 0 auto;
+}
+
+@media (max-width: 1440px) {
+  .container {
+    max-width: 67.5rem;
+    padding-inline: 2rem;
+  }
+}
+
+@media (max-width: 1080px) {
+  .container {
+    max-width: 45rem;
+  }
+
+  #empreendimentos.container {
+    max-width: 100vw;
+  }
+}
+
+@media (max-width: 720px) {
+  .container {
+    max-width: initial;
+    padding-inline: 1rem;
+  }
+}
+
+/* CONTAINER 2 */
+
+.container2 {
+  max-width: 90rem;
+  padding-inline: 5rem;
+  margin: 0 auto;
+}
+
+@media (max-width: 1440px) {
+  .container2 {
+    max-width: 80rem;
+    padding-inline: 2rem;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 1080px) {
+  .container2 {
+    max-width: 100%;
+    padding-inline: 2rem;
+  }
+
+  #empreendimentos.container2 {
+    max-width: 100vw;
+  }
+}
+
+@media (max-width: 720px) {
+  .container2 {
+    padding-inline: 0;
+  }
+}
