@@ -32,7 +32,7 @@ img {
 }
 
 #root {
-  background-color: #eef4f4;
+  background-color: var(--b1);
 }
 
 /* CONTAINER */

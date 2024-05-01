@@ -16,7 +16,7 @@
   --c100: #171a1a;
 }
 
-/* CORES PRIMARIAS */
+/* CORES */
 
 :root {
   --p1: #04c2c3;
@@ -25,16 +25,6 @@
   --p4: #038a8b;
   --p5: #025d5e;
   --p6: #003535;
-}
-
-/* CORES SECUNDARIAS */
-
-:root {
-  --s1: #af0012;
-  --s2: #e6aa46;
-  --s3: #0094c1;
-  --s4: #c64d80;
-  --s5: #1dcc6f;
 }
 
 /* FUNDOS */

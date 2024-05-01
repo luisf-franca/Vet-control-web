@@ -31,7 +31,7 @@
 }
 
 .cadastro-container input {
-  background: white;
+  background: var(--c00);
   box-shadow: var(--shadow3);
   height: 55px;
   width: 522px;

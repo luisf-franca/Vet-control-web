@@ -15,7 +15,7 @@
   padding-block: 150px;
   height: 600px;
   width: 300px;
-  border: 1px solid var(--p1);
+  border: 1px solid var(--p5);
   border-radius: 24px;
   box-shadow: var(--shadow1);
 }
