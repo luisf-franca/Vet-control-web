@@ -3,9 +3,12 @@ import { Routes, Route } from 'react-router-dom';
 
 // PAGES
 import Home from './pages/home.jsx';
-import Animal from './pages/cad-animal.jsx';
-import Tutor from './pages/cad-tutor.jsx';
-import Veterinario from './pages/cad-veterinario.jsx';
+import GetAnimal from './pages/get-animal.jsx';
+import GetTutor from './pages/get-tutor.jsx';
+import GetVeterinario from './pages/get-veterinario.jsx';
+import CadAnimal from './pages/cad-animal.jsx';
+import CadTutor from './pages/cad-tutor.jsx';
+import CadVeterinario from './pages/cad-veterinario.jsx';
 import Sucesso from './pages/cad-completo.jsx';
 
 const Router = () => {
@@ -13,9 +16,12 @@ const Router = () => {
     <>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/cadastrar-animal" element={<Animal />} />
-        <Route path="/cadastrar-tutor" element={<Tutor />} />
-        <Route path="/cadastrar-veterinario" element={<Veterinario />} />
+        <Route path="/cadastrar-animal" element={<CadAnimal />} />
+        <Route path="/cadastrar-tutor" element={<CadTutor />} />
+        <Route path="/cadastrar-veterinario" element={<CadVeterinario />} />
+        <Route path="/animal" element={<GetAnimal />} />
+        <Route path="/tutor" element={<GetTutor />} />
+        <Route path="/veterinario" element={<GetVeterinario />} />
         <Route path="/cadastro-completo" element={<Sucesso />} />
       </Routes>
     </>

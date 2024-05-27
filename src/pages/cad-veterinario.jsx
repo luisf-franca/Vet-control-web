@@ -1,39 +1,101 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/cadastros.css';
 import { NavLink } from 'react-router-dom';
 
 const Veterinario = () => {
+  const [formData, setFormData] = useState({
+    nome: '',
+    crmv: '',
+    endereco: '',
+    email: '',
+    telefone: '',
+  });
+
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const response = await fetch('http://127.0.0.1:5000/add_veterinarian', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData),
+      });
+
+      if (response.ok) {
+        console.log('Veterinário cadastrado com sucesso!');
+      } else {
+        console.error('Erro ao cadastrar veterinário:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Erro ao cadastrar veterinário:', error.message);
+    }
+  };
+
   return (
     <div className="cadastro-container">
       <h2>Cadastro Veterinário</h2>
 
-      <form>
+      <form onSubmit={handleSubmit}>
         <div>
-          <label htmlFor="name">Nome*</label>
-          <input placeholder="Digite o nome do veterinário" />
+          <label htmlFor="nome">Nome*</label>
+          <input
+            type="text"
+            name="nome"
+            value={formData.nome}
+            onChange={handleChange}
+            placeholder="Digite o nome do veterinário"
+          />
         </div>
-
         <div>
-          <label htmlFor="race">CRMV*</label>
-          <input placeholder="Digite o número do CRMV do veterinário" />
+          <label htmlFor="crmv">CRMV*</label>
+          <input
+            type="text"
+            name="crmv"
+            value={formData.crmv}
+            onChange={handleChange}
+            placeholder="Digite o número do CRMV do veterinário"
+          />
         </div>
-
         <div>
-          <label htmlFor="weight">Endereço*</label>
-          <input placeholder="Digite o endereço do veterinário" />
+          <label htmlFor="endereco">Endereço*</label>
+          <input
+            type="text"
+            name="endereco"
+            value={formData.endereco}
+            onChange={handleChange}
+            placeholder="Digite o endereço do veterinário"
+          />
         </div>
-
         <div>
-          <label htmlFor="size">E-mail*</label>
-          <input placeholder="Digite o e-mail do veterinário" />
+          <label htmlFor="email">E-mail*</label>
+          <input
+            type="email"
+            name="email"
+            value={formData.email}
+            onChange={handleChange}
+            placeholder="Digite o e-mail do veterinário"
+          />
         </div>
-
         <div>
-          <label htmlFor="age">Telefone*</label>
-          <input placeholder="Digite o telefone do veterinário" />
+          <label htmlFor="telefone">Telefone*</label>
+          <input
+            type="text"
+            name="telefone"
+            value={formData.telefone}
+            onChange={handleChange}
+            placeholder="Digite o telefone do veterinário"
+          />
         </div>
       </form>
-      <NavLink to="/cadastro-completo">Cadastrar</NavLink>
+      <NavLink to="/cadastro-completo" onClick={handleSubmit}>
+        Cadastrar
+      </NavLink>
     </div>
   );
 };

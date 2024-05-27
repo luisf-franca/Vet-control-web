@@ -18,16 +18,19 @@ const home = () => {
       <div className="wrapper">
         <img src={tutor} />
         <NavLink to="/cadastrar-tutor">Cadastrar tutor</NavLink>
+        <NavLink to="/tutor">Tutores cadastrados</NavLink>
       </div>
 
       <div className="wrapper">
         <img src={animal} />
         <NavLink to="/cadastrar-animal">Cadastrar animal</NavLink>
+        <NavLink to="/animal">Animais cadastrados</NavLink>
       </div>
 
       <div className="wrapper">
         <img src={veterinario} />
         <NavLink to="/cadastrar-veterinario">Cadastrar veterinário</NavLink>
+        <NavLink to="/veterinario">Veterinários cadastrados</NavLink>
       </div>
     </div>
   );

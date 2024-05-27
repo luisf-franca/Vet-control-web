@@ -30,7 +30,8 @@
   color: var(--c70);
 }
 
-.cadastro-container input {
+.cadastro-container input,
+.cadastro-container select {
   background: var(--c00);
   box-shadow: var(--shadow3);
   height: 55px;
@@ -40,7 +41,8 @@
   font-size: 1rem;
 }
 
-.cadastro-container input::placeholder {
+.cadastro-container input::placeholder,
+.cadastro-container select::placeholder {
   color: var(--c20);
 }
 
