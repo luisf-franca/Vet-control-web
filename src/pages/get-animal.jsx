@@ -1,3 +1,4 @@
+// GetAnimal.js
 import React, { useState, useEffect } from 'react';
 import '../styles/catalogos.css';
 
@@ -22,17 +23,37 @@ const GetAnimal = () => {
     fetchAnimals();
   }, []);
 
+  const toggleCard = (index) => {
+    const updatedAnimals = [...animals];
+    updatedAnimals[index].expanded = !updatedAnimals[index].expanded;
+    setAnimals(updatedAnimals);
+  };
+
   return (
     <div className="catalogo-container">
       <h2>Animais</h2>
-      <ul>
-        {animals.map((animal) => (
-          <li key={animal.id}>
-            {animal.nome} - {animal.raca} - {animal.peso}kg - {animal.porte} -
-            Idade: {animal.idade} - Sintomas: {animal.sintomas}
-          </li>
+      <div className="catalogo-wrapper">
+        {animals.map((animal, index) => (
+          <div
+            className={`card ${animal.expanded ? 'expanded' : ''}`}
+            key={animal.id}
+            onClick={() => toggleCard(index)}
+          >
+            <div className="card-header">
+              <h3>Nome: {animal.nome}</h3>
+            </div>
+            <div className="card-content">
+              <ul>
+                <li>Raça: {animal.raca}</li>
+                <li>Peso: {animal.peso}kg</li>
+                <li>Porte: {animal.porte}</li>
+                <li>Idade: {animal.idade}</li>
+                <li>Sintomas: {animal.sintomas}</li>
+              </ul>
+            </div>
+          </div>
         ))}
-      </ul>
+      </div>
     </div>
   );
 };

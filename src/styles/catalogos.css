@@ -1,51 +1,57 @@
 .catalogo-container {
-  height: calc(100vh - 3rem);
-  padding-block: 3rem;
+  padding: 2rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  justify-content: space-between;
+  justify-content: center;
 }
 
-.catalogo-container h2 {
-  font-size: 40px;
-  font-weight: 500;
+.catalogo-wrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.card {
+  background: var(--c00);
+  border-radius: 12px;
+  box-shadow: var(--shadow1);
+  padding: 1rem;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+  width: 24rem;
+}
+
+.card:hover {
+  transform: scale(1.01);
+}
+
+.card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.card-header h3 {
+  margin: 0;
+  font-size: 20px;
   color: var(--p6);
 }
 
-.catalogo-container ul {
-  list-style-type: none;
+.card-content {
+  display: none;
+}
+
+.card.expanded .card-content {
+  display: block;
+}
+
+.card-content ul {
+  list-style: none;
   padding: 0;
-  margin: 0;
 }
 
-.catalogo-container li {
-  margin-bottom: 1rem;
-  padding: 1rem;
-  background-color: var(--c00);
-  border-radius: 15px;
-  box-shadow: var(--shadow3);
-  color: var(--c70);
-}
-
-.catalogo-container li:hover {
-  background-color: var(--p1);
-  transform: scale(1.01);
-}
-
-.catalogo-container a {
-  cursor: pointer;
-  font-size: 1.5rem;
-  color: var(--c00);
-  background: var(--p1);
-  border-radius: 12px;
-  box-shadow: var(--shadow1);
-  padding-block: 0.5rem;
-  padding-inline: 2rem;
-  text-decoration: none;
-}
-
-.catalogo-container a:hover {
-  background: var(--p3);
-  transform: scale(1.01);
+.card-content ul li {
+  margin-bottom: 0.5rem;
+  color: var(--p6);
 }
