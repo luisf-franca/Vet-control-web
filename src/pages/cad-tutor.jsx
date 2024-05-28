@@ -1,6 +1,6 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import '../styles/cadastros.css';
-import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Tutor = () => {
   const [formData, setFormData] = useState({
@@ -10,6 +10,9 @@ const Tutor = () => {
     email: '',
     metodo_pagamento: '',
   });
+
+  const navigate = useNavigate();
+  const formRef = useRef(null);
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -29,6 +32,7 @@ const Tutor = () => {
 
       if (response.ok) {
         console.log('Tutor cadastrado com sucesso!');
+        navigate('/cadastro-completo');
       } else {
         console.error('Erro ao cadastrar tutor:', response.statusText);
       }
@@ -37,10 +41,18 @@ const Tutor = () => {
     }
   };
 
+  const handleButtonClick = () => {
+    if (formRef.current) {
+      formRef.current.dispatchEvent(
+        new Event('submit', { cancelable: true, bubbles: true }),
+      );
+    }
+  };
+
   return (
     <div className="cadastro-container">
       <h2>Cadastro Tutor</h2>
-      <form onSubmit={handleSubmit}>
+      <form ref={formRef} onSubmit={handleSubmit}>
         <div>
           <label htmlFor="nome">Nome*</label>
           <input
@@ -92,9 +104,9 @@ const Tutor = () => {
           />
         </div>
       </form>
-      <NavLink to="/cadastro-completo" onClick={handleSubmit}>
+      <button type="button" onClick={handleButtonClick}>
         Cadastrar
-      </NavLink>
+      </button>
     </div>
   );
 };

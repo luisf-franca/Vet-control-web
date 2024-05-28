@@ -46,7 +46,7 @@
   color: var(--c20);
 }
 
-.cadastro-container a {
+.cadastro-container button {
   cursor: pointer;
   font-size: 1.5rem;
   color: var(--c00);
@@ -57,7 +57,7 @@
   padding-inline: 2rem;
 }
 
-.cadastro-container a:hover {
+.cadastro-container button:hover {
   background: var(--p3);
   transform: scale(1.01);
 }

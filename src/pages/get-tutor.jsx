@@ -1,4 +1,3 @@
-// GetTutor.js
 import React, { useState, useEffect } from 'react';
 import '../styles/catalogos.css';
 
@@ -23,31 +22,29 @@ const GetTutor = () => {
     fetchTutors();
   }, []);
 
-  const toggleCard = (index) => {
-    const updatedTutors = [...tutors];
-    updatedTutors[index].expanded = !updatedTutors[index].expanded;
-    setTutors(updatedTutors);
-  };
-
   return (
     <div className="catalogo-container">
       <h2>Tutores</h2>
       <div className="catalogo-wrapper">
-        {tutors.map((tutor, index) => (
-          <div
-            className={`card ${tutor.expanded ? 'expanded' : ''}`}
-            key={tutor.id}
-            onClick={() => toggleCard(index)}
-          >
+        {tutors.map((tutor) => (
+          <div className="card expanded" key={tutor.id}>
             <div className="card-header">
-              <h3>Nome: {tutor.nome}</h3>
+              <h3>{tutor.nome}</h3>
             </div>
             <div className="card-content">
               <ul>
-                <li>Endereço: {tutor.endereco}</li>
-                <li>Telefone: {tutor.telefone}</li>
-                <li>Email: {tutor.email}</li>
-                <li>Método de Pagamento: {tutor.metodo_pagamento}</li>
+                <li>
+                  <span>Endereço:</span> {tutor.endereco}
+                </li>
+                <li>
+                  <span>Telefone:</span> {tutor.telefone}
+                </li>
+                <li>
+                  <span>Email:</span> {tutor.email}
+                </li>
+                <li>
+                  <span>Método de Pagamento:</span> {tutor.metodo_pagamento}
+                </li>
               </ul>
             </div>
           </div>

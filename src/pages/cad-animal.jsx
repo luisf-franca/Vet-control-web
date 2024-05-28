@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import '../styles/cadastros.css';
-import { NavLink } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 const Animal = () => {
   const [formData, setFormData] = useState({
@@ -14,6 +14,8 @@ const Animal = () => {
   });
 
   const [tutors, setTutors] = useState([]);
+  const navigate = useNavigate();
+  const formRef = useRef(null);
 
   useEffect(() => {
     const fetchTutors = async () => {
@@ -37,7 +39,6 @@ const Animal = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
 
-    // Update tutor_id or tutor name based on the input change
     if (name === 'tutor_id') {
       const selectedTutor = tutors.find(
         (tutor) => tutor.id === parseInt(value),
@@ -70,6 +71,7 @@ const Animal = () => {
 
       if (response.ok) {
         console.log('Animal cadastrado com sucesso!');
+        navigate('/cadastro-completo');
       } else {
         console.error('Erro ao cadastrar animal:', response.statusText);
       }
@@ -78,10 +80,18 @@ const Animal = () => {
     }
   };
 
+  const handleButtonClick = () => {
+    if (formRef.current) {
+      formRef.current.dispatchEvent(
+        new Event('submit', { cancelable: true, bubbles: true }),
+      );
+    }
+  };
+
   return (
     <div className="cadastro-container">
       <h2>Cadastrar Animal</h2>
-      <form onSubmit={handleSubmit}>
+      <form ref={formRef} onSubmit={handleSubmit}>
         <div>
           <label htmlFor="tutor_id">ID do Tutor*</label>
           <input
@@ -168,9 +178,9 @@ const Animal = () => {
           />
         </div>
       </form>
-      <NavLink to="/cadastro-completo" onClick={handleSubmit}>
+      <button type="button" onClick={handleButtonClick}>
         Cadastrar
-      </NavLink>
+      </button>
     </div>
   );
 };

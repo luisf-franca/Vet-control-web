@@ -22,32 +22,29 @@ const GetVeterinarians = () => {
     fetchVeterinarians();
   }, []);
 
-  const toggleCard = (index) => {
-    const updatedVeterinarians = [...veterinarians];
-    updatedVeterinarians[index].expanded =
-      !updatedVeterinarians[index].expanded;
-    setVeterinarians(updatedVeterinarians);
-  };
-
   return (
     <div className="catalogo-container">
       <h2>Veterinários</h2>
       <div className="catalogo-wrapper">
-        {veterinarians.map((veterinarian, index) => (
-          <div
-            className={`card ${veterinarian.expanded ? 'expanded' : ''}`}
-            key={veterinarian.id}
-            onClick={() => toggleCard(index)}
-          >
+        {veterinarians.map((veterinarian) => (
+          <div className="card expanded" key={veterinarian.id}>
             <div className="card-header">
-              <h3>Nome: {veterinarian.nome}</h3>
+              <h3>{veterinarian.nome}</h3>
             </div>
             <div className="card-content">
               <ul>
-                <li>Endereço: {veterinarian.endereco}</li>
-                <li>Telefone: {veterinarian.telefone}</li>
-                <li>CRMV: {veterinarian.crmv}</li>
-                <li>Email: {veterinarian.email}</li>
+                <li>
+                  <span>Endereço:</span> {veterinarian.endereco}
+                </li>
+                <li>
+                  <span>Telefone:</span> {veterinarian.telefone}
+                </li>
+                <li>
+                  <span>CRMV:</span> {veterinarian.crmv}
+                </li>
+                <li>
+                  <span>Email:</span> {veterinarian.email}
+                </li>
               </ul>
             </div>
           </div>

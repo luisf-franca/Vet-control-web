@@ -1,16 +1,25 @@
 .catalogo-container {
-  padding: 2rem;
+  height: calc(100vh - 3rem);
+  padding-block: 3rem;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  align-items: center;
+}
+
+.catalogo-container h2 {
+  margin-bottom: 1rem;
+  font-size: 40px;
+  font-weight: 500;
+  color: var(--p6);
 }
 
 .catalogo-wrapper {
+  padding-inline: 2rem;
   display: flex;
   flex-wrap: wrap;
   gap: 2rem;
+  justify-content: center;
 }
-
 .card {
   background: var(--c00);
   border-radius: 12px;
@@ -23,35 +32,33 @@
 
 .card:hover {
   transform: scale(1.01);
+  h3 {
+    color: var(--p3);
+  }
 }
 
 .card-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
 }
 
 .card-header h3 {
   margin: 0;
-  font-size: 20px;
-  color: var(--p6);
-}
-
-.card-content {
-  display: none;
-}
-
-.card.expanded .card-content {
-  display: block;
+  font-size: 1.3rem;
+  font-weight: 500;
+  color: var(--p4);
 }
 
 .card-content ul {
-  list-style: none;
-  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  color: var(--p6);
 }
 
-.card-content ul li {
-  margin-bottom: 0.5rem;
-  color: var(--p6);
+.card-content li span {
+  color: var(--p5);
+  font-weight: 500;
 }
