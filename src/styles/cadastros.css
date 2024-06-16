@@ -61,3 +61,9 @@
   background: var(--p3);
   transform: scale(1.01);
 }
+
+.error-message {
+  color: red;
+  position: absolute;
+  bottom: 7rem;
+}

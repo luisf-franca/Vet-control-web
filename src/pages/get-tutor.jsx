@@ -7,7 +7,9 @@ const GetTutor = () => {
   useEffect(() => {
     const fetchTutors = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:5000/tutors');
+        const response = await fetch(
+          'https://luisffranca.pythonanywhere.com/tutors',
+        );
         if (response.ok) {
           const data = await response.json();
           setTutors(data.tutors);

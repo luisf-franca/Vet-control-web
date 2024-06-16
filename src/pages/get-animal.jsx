@@ -7,7 +7,9 @@ const GetAnimal = () => {
   useEffect(() => {
     const fetchAnimals = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:5000/animals');
+        const response = await fetch(
+          'https://luisffranca.pythonanywhere.com/animals',
+        );
         if (response.ok) {
           const data = await response.json();
           setAnimals(data.animals);

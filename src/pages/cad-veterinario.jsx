@@ -21,14 +21,26 @@ const Veterinario = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    // Validação manual
+    for (const key in formData) {
+      if (formData[key] === '') {
+        alert('Por favor, preencha todos os campos obrigatórios.');
+        return;
+      }
+    }
+
     try {
-      const response = await fetch('http://127.0.0.1:5000/add_veterinarian', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        'https://luisffranca.pythonanywhere.com/add_veterinarian',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
         },
-        body: JSON.stringify(formData),
-      });
+      );
 
       if (response.ok) {
         console.log('Veterinário cadastrado com sucesso!');
@@ -62,6 +74,7 @@ const Veterinario = () => {
             value={formData.nome}
             onChange={handleChange}
             placeholder="Digite o nome do veterinário"
+            required
           />
         </div>
         <div>
@@ -72,6 +85,7 @@ const Veterinario = () => {
             value={formData.crmv}
             onChange={handleChange}
             placeholder="Digite o número do CRMV do veterinário"
+            required
           />
         </div>
         <div>
@@ -82,6 +96,7 @@ const Veterinario = () => {
             value={formData.endereco}
             onChange={handleChange}
             placeholder="Digite o endereço do veterinário"
+            required
           />
         </div>
         <div>
@@ -92,6 +107,7 @@ const Veterinario = () => {
             value={formData.email}
             onChange={handleChange}
             placeholder="Digite o e-mail do veterinário"
+            required
           />
         </div>
         <div>
@@ -102,6 +118,7 @@ const Veterinario = () => {
             value={formData.telefone}
             onChange={handleChange}
             placeholder="Digite o telefone do veterinário"
+            required
           />
         </div>
       </form>

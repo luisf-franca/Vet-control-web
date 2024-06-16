@@ -14,13 +14,16 @@ const Animal = () => {
   });
 
   const [tutors, setTutors] = useState([]);
+  const [error, setError] = useState('');
   const navigate = useNavigate();
   const formRef = useRef(null);
 
   useEffect(() => {
     const fetchTutors = async () => {
       try {
-        const response = await fetch('http://127.0.0.1:5000/tutors');
+        const response = await fetch(
+          'https://luisffranca.pythonanywhere.com/tutors',
+        );
         if (response.ok) {
           const data = await response.json();
           setTutors(data.tutors);
@@ -60,14 +63,27 @@ const Animal = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    for (const key in formData) {
+      if (formData[key] === '') {
+        setError('Por favor, preencha todos os campos.');
+        return;
+      }
+    }
+
+    setError('');
+
     try {
-      const response = await fetch('http://127.0.0.1:5000/add_animal', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
+      const response = await fetch(
+        'https://luisffranca.pythonanywhere.com/add_animal',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(formData),
         },
-        body: JSON.stringify(formData),
-      });
+      );
 
       if (response.ok) {
         console.log('Animal cadastrado com sucesso!');
@@ -100,6 +116,7 @@ const Animal = () => {
             value={formData.tutor_id}
             onChange={handleChange}
             placeholder="Digite o ID do tutor"
+            required
           />
         </div>
         <div>
@@ -108,6 +125,7 @@ const Animal = () => {
             name="tutor_name"
             value={formData.tutor_name}
             onChange={handleChange}
+            required
           >
             <option value="">Selecione um tutor</option>
             {tutors.map((tutor) => (
@@ -125,6 +143,7 @@ const Animal = () => {
             value={formData.nome}
             onChange={handleChange}
             placeholder="Digite o nome do animal"
+            required
           />
         </div>
         <div>
@@ -135,6 +154,7 @@ const Animal = () => {
             value={formData.peso}
             onChange={handleChange}
             placeholder="Digite o peso do animal"
+            required
           />
         </div>
         <div>
@@ -145,6 +165,7 @@ const Animal = () => {
             value={formData.raca}
             onChange={handleChange}
             placeholder="Digite a raça do animal"
+            required
           />
         </div>
         <div>
@@ -155,6 +176,7 @@ const Animal = () => {
             value={formData.porte}
             onChange={handleChange}
             placeholder="Digite o porte do animal"
+            required
           />
         </div>
         <div>
@@ -165,19 +187,22 @@ const Animal = () => {
             value={formData.idade}
             onChange={handleChange}
             placeholder="Digite a idade do animal"
+            required
           />
         </div>
         <div>
-          <label htmlFor="sintomas">Sintomas</label>
+          <label htmlFor="sintomas">Sintomas*</label>
           <input
             type="text"
             name="sintomas"
             value={formData.sintomas}
             onChange={handleChange}
             placeholder="Digite os sintomas do animal"
+            required
           />
         </div>
       </form>
+      {error && <p className="error-message">{error}</p>}
       <button type="button" onClick={handleButtonClick}>
         Cadastrar
       </button>
