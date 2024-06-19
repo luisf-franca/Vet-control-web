@@ -25,7 +25,7 @@ const GetVeterinarians = () => {
   }, []);
 
   return (
-    <div className="catalogo-container">
+    <div className="catalogo-container container">
       <h2>Veterinários</h2>
       <div className="catalogo-wrapper">
         {veterinarians.map((veterinarian) => (

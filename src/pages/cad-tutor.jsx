@@ -22,7 +22,6 @@ const Tutor = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validação manual
     for (const key in formData) {
       if (formData[key] === '') {
         alert('Por favor, preencha todos os campos obrigatórios.');
@@ -62,7 +61,7 @@ const Tutor = () => {
   };
 
   return (
-    <div className="cadastro-container">
+    <div className="cadastro-container container">
       <h2>Cadastro Tutor</h2>
       <form ref={formRef} onSubmit={handleSubmit}>
         <div>
@@ -109,7 +108,7 @@ const Tutor = () => {
             required
           />
         </div>
-        <div>
+        {/* <div>
           <label htmlFor="metodo_pagamento">Método de pagamento*</label>
           <input
             type="text"
@@ -119,7 +118,7 @@ const Tutor = () => {
             placeholder="Selecione o método de pagamento do tutor"
             required
           />
-        </div>
+        </div> */}
       </form>
       <button type="button" onClick={handleButtonClick}>
         Cadastrar

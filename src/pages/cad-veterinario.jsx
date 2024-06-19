@@ -22,7 +22,6 @@ const Veterinario = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Validação manual
     for (const key in formData) {
       if (formData[key] === '') {
         alert('Por favor, preencha todos os campos obrigatórios.');
@@ -62,7 +61,7 @@ const Veterinario = () => {
   };
 
   return (
-    <div className="cadastro-container">
+    <div className="cadastro-container container">
       <h2>Cadastro Veterinário</h2>
 
       <form ref={formRef} onSubmit={handleSubmit}>

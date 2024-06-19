@@ -1,0 +1,55 @@
+.App {
+  display: flex;
+  justify-content: center;
+}
+
+.diagnosticos-container {
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-sizing: border-box;
+}
+
+.diagnosticos-table {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.diagnosticos-row {
+  display: flex;
+  width: 100%;
+  border-top: 1px solid #ddd;
+  box-sizing: border-box;
+}
+
+.diagnosticos-row:first-child {
+  border-top: none;
+}
+
+.diagnosticos-cell {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  box-sizing: border-box;
+  border-right: 1px solid #ddd;
+}
+
+.diagnosticos-cell:last-child {
+  border-right: none;
+}
+
+.diagnosticos-link {
+  color: #00bfa6;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.diagnosticos-link:hover {
+  text-decoration: underline;
+}

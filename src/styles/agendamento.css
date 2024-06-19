@@ -1,0 +1,79 @@
+.cad-consulta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+}
+
+.agendamento {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 3rem;
+  align-items: center;
+  justify-content: center;
+  border-radius: 10px;
+}
+
+.agendamento > div {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-self: flex-end;
+}
+
+.agendamento picture {
+  height: 280px;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+
+.agendamento img {
+  max-height: 100%;
+}
+
+.agendamento form {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.agendamento label {
+  color: var(--c70);
+}
+
+.agendamento input,
+.agendamento select {
+  background: var(--c00);
+  box-shadow: var(--shadow3);
+  height: 55px;
+  width: 100%;
+  border-radius: 15px;
+  padding-inline: 20px;
+  font-size: 1rem;
+  color: var(--c70);
+}
+
+.agendamento input::placeholder,
+.agendamento select::placeholder {
+  color: var(--c20);
+}
+
+.cad-consulta button {
+  font-size: 1rem;
+  background: var(--p3);
+  color: var(--c00);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 24rem;
+  height: 2.4rem;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    background: var(--p4);
+    transform: scale(1.01);
+  }
+}

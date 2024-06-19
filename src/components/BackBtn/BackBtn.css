@@ -1,0 +1,13 @@
+.back-button {
+  cursor: pointer;
+  position: absolute;
+  top: 10%;
+  left: 5%;
+
+  color: var(--p3);
+  font-size: 3rem;
+
+  &:hover {
+    transform: scale(105%);
+  }
+}

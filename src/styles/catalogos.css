@@ -1,16 +1,34 @@
 .catalogo-container {
-  height: calc(100vh - 3rem);
-  padding-block: 3rem;
   display: flex;
   flex-direction: column;
+  gap: 2rem;
   align-items: center;
 }
 
+.catalogo-container input {
+  border: 1px solid var(--p3);
+  border-radius: 1.5rem;
+  padding: 0.5rem 0.5rem;
+  background: rgba(255, 255, 255, 0.3);
+  font-size: 1.5rem;
+  display: flex;
+  width: 30%;
+  text-align: center;
+  color: var(--p5);
+  background: var(--c00);
+
+  &::placeholder {
+    font-size: 1.5rem;
+    color: var(--c50);
+    text-align: center;
+  }
+}
+
 .catalogo-container h2 {
-  margin-bottom: 1rem;
-  font-size: 40px;
-  font-weight: 500;
-  color: var(--p6);
+  font-size: 3rem;
+  font-weight: 800;
+  color: var(--p4);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
 }
 
 .catalogo-wrapper {
@@ -25,13 +43,11 @@
   border-radius: 12px;
   box-shadow: var(--shadow1);
   padding: 1rem;
-  cursor: pointer;
   transition: transform 0.3s ease-in-out;
   width: 24rem;
 }
 
 .card:hover {
-  transform: scale(1.01);
   h3 {
     color: var(--p3);
   }
@@ -47,8 +63,15 @@
 .card-header h3 {
   margin: 0;
   font-size: 1.3rem;
-  font-weight: 500;
+  font-weight: 700;
   color: var(--p4);
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+
+.card-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
 }
 
 .card-content ul {
@@ -61,4 +84,49 @@
 .card-content li span {
   color: var(--p5);
   font-weight: 500;
+}
+
+.card-content a {
+  font-size: 1rem;
+  background: var(--p5);
+  color: var(--c00);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+
+  width: max-content;
+
+  &:hover {
+    background: var(--p4);
+    transform: scale(1.01);
+  }
+}
+
+.return-null {
+  display: flex;
+  gap: 2rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+
+  h3 {
+    font-size: 2rem;
+    color: var(--c60);
+  }
+}
+
+.return-null button {
+  font-size: 1rem;
+  background: var(--p4);
+  color: var(--c00);
+  padding: 0.25rem 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  box-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+
+  &:hover {
+    background: var(--p4);
+    transform: scale(1.01);
+  }
 }

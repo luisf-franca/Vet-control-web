@@ -5,6 +5,7 @@ import { useNavigate } from 'react-router-dom';
 const Animal = () => {
   const [formData, setFormData] = useState({
     tutor_id: '',
+    tutor_name: '',
     nome: '',
     peso: '',
     raca: '',
@@ -42,16 +43,7 @@ const Animal = () => {
     const { name, value } = e.target;
     setFormData({ ...formData, [name]: value });
 
-    if (name === 'tutor_id') {
-      const selectedTutor = tutors.find(
-        (tutor) => tutor.id === parseInt(value),
-      );
-      setFormData({
-        ...formData,
-        tutor_id: value,
-        tutor_name: selectedTutor ? selectedTutor.nome : '',
-      });
-    } else if (name === 'tutor_name') {
+    if (name === 'tutor_name') {
       const selectedTutor = tutors.find((tutor) => tutor.nome === value);
       setFormData({
         ...formData,
@@ -87,7 +79,7 @@ const Animal = () => {
 
       if (response.ok) {
         console.log('Animal cadastrado com sucesso!');
-        navigate('/cadastro-completo');
+        navigate('/cadastro-completo'); // Redirecionamento após o cadastro
       } else {
         console.error('Erro ao cadastrar animal:', response.statusText);
       }
@@ -105,20 +97,9 @@ const Animal = () => {
   };
 
   return (
-    <div className="cadastro-container">
-      <h2>Cadastrar Animal</h2>
+    <div className="cadastro-container container">
+      <h2>Cadastrar Pet</h2>
       <form ref={formRef} onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="tutor_id">ID do Tutor*</label>
-          <input
-            type="text"
-            name="tutor_id"
-            value={formData.tutor_id}
-            onChange={handleChange}
-            placeholder="Digite o ID do tutor"
-            required
-          />
-        </div>
         <div>
           <label htmlFor="tutor_name">Nome do Tutor*</label>
           <select
@@ -190,7 +171,7 @@ const Animal = () => {
             required
           />
         </div>
-        <div>
+        {/* <div>
           <label htmlFor="sintomas">Sintomas*</label>
           <input
             type="text"
@@ -200,7 +181,7 @@ const Animal = () => {
             placeholder="Digite os sintomas do animal"
             required
           />
-        </div>
+        </div> */}
       </form>
       {error && <p className="error-message">{error}</p>}
       <button type="button" onClick={handleButtonClick}>

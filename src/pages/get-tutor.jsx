@@ -1,8 +1,10 @@
 import React, { useState, useEffect } from 'react';
+import { NavLink } from 'react-router-dom';
 import '../styles/catalogos.css';
 
 const GetTutor = () => {
   const [tutors, setTutors] = useState([]);
+  const [searchTerm, setSearchTerm] = useState('');
 
   useEffect(() => {
     const fetchTutors = async () => {
@@ -24,11 +26,30 @@ const GetTutor = () => {
     fetchTutors();
   }, []);
 
+  const handleSearch = (event) => {
+    setSearchTerm(event.target.value);
+  };
+
+  const removeDiacritics = (str) => {
+    return str.normalize('NFD').replace(/[\u0300-\u036f]/g, '');
+  };
+
+  const filteredTutors = tutors.filter((tutor) =>
+    removeDiacritics(tutor.nome.toLowerCase()).includes(
+      removeDiacritics(searchTerm.toLowerCase()),
+    ),
+  );
+
   return (
-    <div className="catalogo-container">
-      <h2>Tutores</h2>
+    <div className="catalogo-container container">
+      <input
+        type="search"
+        placeholder="Pesquisar tutor"
+        value={searchTerm}
+        onChange={handleSearch}
+      />
       <div className="catalogo-wrapper">
-        {tutors.map((tutor) => (
+        {filteredTutors.map((tutor) => (
           <div className="card expanded" key={tutor.id}>
             <div className="card-header">
               <h3>{tutor.nome}</h3>
@@ -44,10 +65,11 @@ const GetTutor = () => {
                 <li>
                   <span>Email:</span> {tutor.email}
                 </li>
-                <li>
+                {/* <li>
                   <span>Método de Pagamento:</span> {tutor.metodo_pagamento}
-                </li>
+                </li> */}
               </ul>
+              <NavLink to={`/animal/${tutor.id}`}>Ver pets</NavLink>
             </div>
           </div>
         ))}
